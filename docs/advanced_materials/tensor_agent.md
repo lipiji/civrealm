@@ -15,7 +15,7 @@ and various modular wrappers which are open to customize your own environment.
 
 
 
-The civrealmtensor-baseline repository is a collection of code and utilities that provide a baseline implementation for training reinforcement learning agents using tensor-based algorithms.
+The civrealm-tensor-baseline repository is a collection of code and utilities that provide a baseline implementation for training reinforcement learning agents using tensor-based algorithms.
 
 It includes an implementation of the PPO algorithm, which we will use to train our agents in the Civrealm Tensor Environment.
 
@@ -24,7 +24,7 @@ To get started, follow these steps:
 
 First install
 ```
-cd civrealmtensor-baseline
+cd civrealm-tensor-baseline
 pip install -e .
 ```
 
@@ -37,7 +37,7 @@ cd examples
 > If you encounter the error "./train.sh: line 1: python: command not found", you may change "python" in train.sh to "python3".
 
 ### Fullgame
-Edit `civrealmtensor-baseline/civtensor/configs/envs_cfgs/freeciv_tensor_env.yaml`
+Edit `civrealm-tensor-baseline/civtensor/configs/envs_cfgs/freeciv_tensor_env.yaml`
 
 Change `task_name` to `fullgame`
 
@@ -51,7 +51,7 @@ task_name: fullgame
 
 Before running, please download the mini task maps according to [Prepare Dataset](https://civrealm.github.io/civrealm/advanced_materials/minigame/#prepare-dataset).
 
-`civrealmtensor-baseline/examples/run.py` will run all minitasks specified in `examples/run_configs` including 12 types x 3 levels = 36 runs.
+`civrealm-tensor-baseline/examples/run.py` will run all minitasks specified in `examples/run_configs` including 12 types x 3 levels = 36 runs.
 ```sh
 cd exmaples
 python run.py --webdir $civrealm-dir
@@ -73,7 +73,7 @@ then the results should be visible in the browser.
 
 
 ## Customize
-Training parameters could be adjusted in `civrealmtensor-baseline/civtensor/configs/algos_cfgs/ppo.yaml`
+Training parameters could be adjusted in `civrealm-tensor-baseline/civtensor/configs/algos_cfgs/ppo.yaml`
 
 For training minitask tensor baseline, we used the following default setting:
 

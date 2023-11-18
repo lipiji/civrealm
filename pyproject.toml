@@ -1,0 +1,126 @@
+[project]
+name = "civrealm"
+version = "0.1"
+description = "CivRealm is a reinforcement learning environment for the open-source strategy game Freeciv."
+
+readme = "README.md"
+license = {text = "GLP3.0"}
+dependencies = [
+    "pyyaml",
+    "overrides",
+    "wheel",
+    "docker",
+    "urllib3", 
+    "BitVector", 
+    "numpy", 
+    "tornado==6.3.2", 
+    "gymnasium==0.29.1", 
+    "selenium==4.9.1", 
+    "websocket-client",
+    "pytest",
+    "pytest-xdist",
+    "filelock",
+    # The following packages are for parallel training
+    "ray==2.6.3",
+    # The following packages are for the LLM agent
+    "tiktoken",
+    "openai",
+    "langchain",
+    "pinecone-client",
+    "func-timeout",
+    "requests",
+    "ipdb",
+    # The following packages are for the tensor-based agent
+    "torch",
+    "matplotlib"
+]
+
+
+[project.scripts]
+update_freeciv_web_docker = "civrealm.freeciv.build_server:update_docker_image"
+update_javascript_for_clean_screenshot = "civrealm.freeciv.build_server:update_javascript_for_clean_screenshot"
+test_civrealm = "civrealm.random_game:main"
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::DeprecationWarning", "ignore:.*obs returned by the.*method.*", "ignore:.*Casting input x to numpy array.*"]
+addopts = [
+    "--import-mode=importlib",
+    "-s", # show print statements in console 
+    "-n 16", # specify the number of processes for parallel test
+    # specify which test file to run by setting test file name
+
+    # # City
+    # "tests/city/test_city_change_unit_prod.py",
+    # "tests/city/test_city_change_improve_prod.py",
+    # "tests/city/test_city_change_specialist.py",
+    # "tests/city/test_city_unwork.py",
+    # "tests/city/test_city_work.py",
+    # "tests/city/test_city_buy_prod.py",
+    # "tests/city/test_city_buy_if_anarchy.py",
+    # "tests/city/test_city_sell_improvement.py",
+    # # Dipl
+    # "tests/dipl/test_dipl_start_negotiate.py",
+    # "tests/dipl/test_dipl_stop_negotiate.py",
+    # "tests/dipl/test_dipl_accept_treaty.py",
+    # "tests/dipl/test_dipl_cancel_treaty.py",
+    # "tests/dipl/test_dipl_cancel_vision.py",
+    # "tests/dipl/test_dipl_remove_clause.py",
+    # "tests/dipl/test_dipl_add_clause.py",
+    # "tests/dipl/test_dipl_trade_tech.py",
+    # "tests/dipl/test_dipl_trade_gold.py",
+    # "tests/dipl/test_dipl_trade_city.py",
+    # # Gov
+    # "tests/gov/test_change_government.py",
+    # "tests/gov/test_gov_increase_tax.py",
+    # "tests/gov/test_gov_decrease_tax.py",
+    # "tests/gov/test_gov_increase_sci.py",
+    # "tests/gov/test_gov_decrease_sci.py",
+    # "tests/gov/test_gov_increase_lux.py",
+    # "tests/gov/test_gov_decrease_lux.py",
+    # "tests/gov/test_gov_set_sci_lux_tax.py",
+    # # Tech
+    # "tests/tech/test_choose_research_tech.py",
+    # "tests/tech/test_choose_research_goal.py",
+    # # Unit
+    # "tests/unit/test_move_to.py",
+    # "tests/unit/test_hut_enter.py",
+    # "tests/unit/test_build_city.py",
+    # "tests/unit/test_build_city2.py",
+    # "tests/unit/test_join_city.py",
+    # "tests/unit/test_build_road.py",
+    # "tests/unit/test_build_railroad.py",
+    # "tests/unit/test_irrigation.py",
+    # "tests/unit/test_mine.py",
+    # "tests/unit/test_mine_desert.py",
+    # "tests/unit/test_cultivate.py",
+    # "tests/unit/test_plant.py",
+    # "tests/unit/test_pillage.py",
+    # "tests/unit/test_pollution.py",
+    # "tests/unit/test_fortress.py",
+    # "tests/unit/test_fortify.py",
+    # "tests/unit/test_homecity.py",
+    # "tests/unit/test_upgrade.py",
+    # "tests/unit/test_get_action_pro.py",
+    # "tests/unit/test_get_action_pro2.py",
+    # "tests/unit/test_get_action_pro3.py",
+    # "tests/unit/test_attack.py",
+    # "tests/unit/test_conquer_city.py",
+    # "tests/unit/test_get_action_pro_spy_bribe.py",
+    # "tests/unit/test_get_action_pro_spy_steal.py",
+    # "tests/unit/test_spy_steal_tech.py",
+    # "tests/unit/test_spy_sabotage_city.py",
+    # "tests/unit/test_spy_bribe_unit.py",
+    # "tests/unit/test_investigate_spend.py",
+    # "tests/unit/test_cancel_order.py",
+    # "tests/unit/test_airbase.py",
+    # "tests/unit/test_embark_disembark.py",
+    # "tests/unit/test_embark_2.py",
+    # "tests/unit/test_load_deboard_unload.py",
+    # "tests/unit/test_trade_route_market.py",
+    # "tests/unit/test_embassy_stay.py",
+    # "tests/unit/test_transform.py",
+    
+    # Deprecated test
+    # "tests/unit/test_disband.py",
+
+]

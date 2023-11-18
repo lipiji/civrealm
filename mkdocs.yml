@@ -1,0 +1,73 @@
+site_name: Civrealm
+repo_url: https://github.com/civrealm/civrealm
+repo_name: civilization/civrealm
+copyright: Copyright &copy; 2023
+site_dir: public
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/gitlab
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src/civrealm]
+          options:
+            show_root_heading: true
+            show_source: true
+            show_root_full_path: true
+            docstring_style: numpy
+            heading_level: 3
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+nav:
+  - Getting Started: index.md
+  - Advanced Materials:
+      - Game:
+          - Game Setting: advanced_materials/game_setting.md
+          - Full Game: advanced_materials/fullgame.md
+          - Mini-Game: advanced_materials/minigame.md
+      - Agent:
+          - Tensor Agent: advanced_materials/tensor_agent.md
+          - LLM Agent: advanced_materials/llm_agent.md
+  - Api Reference: api_reference/api.md
+  - Releases: releases/releases.md
+  - Notes:
+      - Contribute To CivRealm: notes/contribute.md
+      - Performance Benchmarks: notes/benchmarks.md
+  - Misc: 
+      - FAQ: misc/faq.md
+      - Resources: misc/resources.md

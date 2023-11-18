@@ -1,0 +1,16 @@
+before_script:
+  - "pip install mkdocs mkdocs-autorefs mkdocs-material mkdocstrings[python]"
+
+stages:
+  - pages
+
+pages:
+  stage: pages
+  image: python:latest
+  script:
+    - mkdocs build
+  artifacts:
+    paths:
+      - public
+  only:
+    - dev

@@ -1,0 +1,20 @@
+# User-specific files
+.vscode/
+.settings/
+.ipynb_checkpoints/
+
+# Generated files
+plot_game_scores/
+game_scores/
+civrealm.egg-info/
+tests/logs/
+geckodriver
+geckodriver.log
+.pytest_cache/
+__pycache__/
+*.pyc
+.sonar/
+.idea
+.VSCodeCounter/
+*.log
+tmp.prof
